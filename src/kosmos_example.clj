@@ -27,6 +27,11 @@
 
     (context "/api" []
       :tags ["api"]
+      (GET "/multiply" []
+        :return {:result Long}
+        :query-params [x :- Long, y :- Long]
+        :summary "multiply two numbers"
+        (ok {:result (* x y)}))
 
       (GET "/plus" []
         :return {:result Long}
@@ -40,20 +45,16 @@
         :summary "echoes a Pizza"
         (ok pizza)))))
 
-
 (defn read-config [filename]
-  (edn/read-string (slurp "resources/web_config.edn")))
-#_(def config (edn/read-string (slurp "resources/web_config.edn")))
-;; ring-server (map->RingJettyComponent (:web config))
-
+  (edn/read-string (slurp filename)))
 
 (defn base-system []
   (let [config (read-config "resources/web_config.edn")]
     (kosmos/map->system config)))
 
 (defn application-system []
-  (base-system))
+  (kosmos/start! (base-system)))
 
 (defn -main [& args]
-  (kosmos/start! (application-system)))
+  (application-system))
 

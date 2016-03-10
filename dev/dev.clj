@@ -30,6 +30,7 @@
   "Starts the system running, updates the Var #'system."
   []
   ;; TODO
+  (application-system)
   )
 
 (defn stop
