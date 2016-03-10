@@ -4,7 +4,7 @@ Simpliest example of using kosmos and using kosmos-web.
 
 ## Usage
 
-run the server with: 
+run the system with: 
 
 
 ``` 
