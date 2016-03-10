@@ -30,14 +30,13 @@
   "Starts the system running, updates the Var #'system."
   []
   ;; TODO
-  (application-system)
-  )
+  (application-system))
 
 (defn stop
   "Stops the system if it is currently running, updates the Var
   #'system."
   []
-  ;; TODO
+  (kosmos/stop!)  
   )
 
 (defn go

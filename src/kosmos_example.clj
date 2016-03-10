@@ -9,13 +9,6 @@
             [schema.core :as s]
             [kosmos]))
 
-(s/defschema Pizza
-  {:name s/Str
-   (s/optional-key :description) s/Str
-   :size (s/enum :L :M :S)
-   :origin {:country (s/enum :FI :PO)
-            :city s/Str}})
-
 (def app
   (api
     {:swagger
@@ -39,11 +32,7 @@
         :summary "adds two numbers together"
         (ok {:result (+ x y)}))
 
-      (POST "/echo" []
-        :return Pizza
-        :body [pizza Pizza]
-        :summary "echoes a Pizza"
-        (ok pizza)))))
+      )))
 
 (defn read-config [filename]
   (edn/read-string (slurp filename)))
@@ -57,4 +46,3 @@
 
 (defn -main [& args]
   (application-system))
-
