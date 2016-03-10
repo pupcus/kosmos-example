@@ -6,7 +6,8 @@
             [com.stuartsierra.component :as component]
             [compojure.api.sweet :refer :all]
             [ring.util.http-response :refer :all]
-            [schema.core :as s]))
+            [schema.core :as s]
+            [kosmos]))
 
 (s/defschema Pizza
   {:name s/Str
@@ -40,18 +41,19 @@
         (ok pizza)))))
 
 
-(defn test-ring-app [request]
-  {:status 200
-   :headers {"Content-Type" "application/edn"}
-   :body (pr-str {:testing 123})})
-
+(defn read-config [filename]
+  (edn/read-string (slurp "resources/web_config.edn")))
 #_(def config (edn/read-string (slurp "resources/web_config.edn")))
+;; ring-server (map->RingJettyComponent (:web config))
+
+
+(defn base-system []
+  (let [config (read-config "resources/web_config.edn")]
+    (kosmos/map->system config)))
 
 (defn application-system []
-  (let [config (edn/read-string (slurp "resources/web_config.edn"))
-        ring-server (map->RingJettyComponent (:web config))]
-    (component/start ring-server)))
+  (base-system))
 
 (defn -main [& args]
-  (application-system))
+  (kosmos/start! (application-system)))
 

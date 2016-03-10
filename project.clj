@@ -9,8 +9,6 @@
                  [kosmos/kosmos-web  "0.0.2"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.11"]]
                    :source-paths ["dev"]}}
-
-  :plugins [[lein-ring "0.9.7"]]
-  
+ 
   :main kosmos-example/-main
   )

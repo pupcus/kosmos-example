@@ -11,7 +11,8 @@
    [clojure.string :as str]
    [clojure.test :as test]
    [clojure.tools.namespace.repl :refer [refresh refresh-all]]
-   [kosmos-example :refer :all]))
+   [kosmos-example :refer :all]
+   [kosmos]))
 
 (def system
   "A Var containing an object representing the application under
