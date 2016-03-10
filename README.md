@@ -11,7 +11,7 @@ run the server with:
 lein run
 ```
 
-Visit server url in browser and see a file with "{:testing 123}" in it.
+Visit server url (localhost:1111) in browser and see a file with "{:testing 123}" in it.
 
 
 

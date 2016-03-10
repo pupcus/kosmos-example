@@ -2,6 +2,7 @@
   (:require [kosmos.web :refer :all]
             [clojure.tools.reader.edn :as edn]
             [clj-http.client :as http]
+            [clojure.tools.logging :as log]
             [com.stuartsierra.component :as component]))
 
 (defn test-ring-app [request]
@@ -9,17 +10,10 @@
    :headers {"Content-Type" "application/edn"}
    :body (pr-str {:testing 123})})
 
-(defn init-fn []
-  (println "whatup internet"))
-
-(def config
-  {:web
-   {:kosmos/type :kosmos.web/RingJettyComponent
-    :join? false
-    :ring-app #'test-ring-app
-    :port 1111}})
+(def config (edn/read-string (slurp "resources/web_config.edn")))
 
 (defn -main [& args]
+  (log/info (pr-str config))
   (let [my-ring-component (map->RingJettyComponent (:web config))]
     (component/start my-ring-component)))
 

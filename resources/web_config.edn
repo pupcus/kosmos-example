@@ -1,0 +1,8 @@
+{:web
+  {:kosmos/type :kosmos.web/RingJettyComponent
+   :join? false
+   :ring-app kosmos-example/test-ring-app
+   :port 1111
+  }
+}
+
