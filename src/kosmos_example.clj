@@ -30,14 +30,12 @@
         :return {:result Long}
         :query-params [x :- Long, y :- Long]
         :summary "adds two numbers together"
-        (ok {:result (+ x y)}))
+        (ok {:result (+ x y)})))))
 
-      )))
-
-(defn read-config [filename]
+(defn ^:private read-config [filename]
   (edn/read-string (slurp filename)))
 
-(defn base-system []
+(defn ^:private base-system []
   (let [config (read-config "resources/web_config.edn")]
     (kosmos/map->system config)))
 

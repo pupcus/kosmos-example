@@ -11,4 +11,5 @@
                    :source-paths ["dev"]}}
  
   :main kosmos-example/-main
+  :repl-options {:init-ns user}
   )

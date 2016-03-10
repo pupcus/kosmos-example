@@ -15,12 +15,8 @@ Visit server url (localhost:1111) in browser to see the swagger UI for the cloju
 
 ## Development
 
-Start the repl and switch to the user namespace and switch to dev. The jetty server will start up and you can develop and `(reset)` as needed. 
+The repl will switch to the user namespace upon loading. Type `(dev)` to switch to dev namespace and load the repl functions. Use `(go)` to start the jetty server and you can develop and `(reset)` as needed. 
 
-```
-(in-ns 'user)
-(dev)
-```
 
 
 
