@@ -6,7 +6,8 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [clj-http "2.1.0"]
                  [metosin/compojure-api "1.0.0"]
-                 [kosmos/kosmos-web  "0.0.2"]]
+                 [kosmos/kosmos-web  "0.0.2"]
+                 [kosmos/kosmos-nrepl "0.0.1"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.11"]]
                    :source-paths ["dev"]}}
  

@@ -1,8 +1,12 @@
-{:web
-  {:kosmos/init :kosmos.web/RingJettyComponent
-   :join? false
-   :ring-app kosmos-example/app
-   :port 1111
-  }
+{
+ :web
+   {:kosmos/init :kosmos.web/RingJettyComponent
+    :join? false
+    :ring-app kosmos-example/app
+    :port 1111
+    } 
+  :nrepl
+    {:kosmos/init :kosmos.nrepl/NreplComponent
+     :port 5001 
+    } 
 }
-
