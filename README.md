@@ -1,12 +1,12 @@
 # kosmos-example
 
-Simpliest example of using kosmos and configs for kosmos-web and nrepl..
+Simpliest example of using kosmos and config  for kosmos-web and nrepl..
 
 ## Configuration File
 
+resources/config.edn
 
 ```clj
-;; resources/config.edn
 {
   :web {
     :kosmos/init :kosmos.web/RingJettyComponent
@@ -26,8 +26,7 @@ Simpliest example of using kosmos and configs for kosmos-web and nrepl..
 
 ## Usage
 
-run the system with: 
-
+Standalone, run the app with: 
 
 ``` 
 lein run
@@ -35,13 +34,13 @@ lein run
 
 Visit server url (localhost:1111) in browser to see the swagger UI for the clojure-api application. 
 
+Connect to the nrepl with
+
+```
+lein repl :connect 5001
+```
+
 ## Reloaded Style Development
 
-
-The repl will switch to the user namespace upon loading. Type `(dev)` to switch to dev namespace and load the repl functions. Use `(go)` to start the jetty server and you can develop and `(reset)` as needed. 
-
-
-
-
-
+The repl will switch to the user namespace upon loading. Type `(dev)` to switch to dev namespace and load the repl functions. Use `(go)` to start the application. Develop and `(reset)` as needed. 
 
