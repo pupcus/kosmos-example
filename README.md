@@ -44,3 +44,4 @@ lein repl :connect 5001
 
 The repl will switch to the user namespace upon loading. Type `(dev)` to switch to dev namespace and load the repl functions. Use `(go)` to start the application. Develop and `(reset)` as needed. 
 
+More [info on reloaded](http://thinkrelevance.com/blog/2013/06/04/clojure-workflow-reloaded).
