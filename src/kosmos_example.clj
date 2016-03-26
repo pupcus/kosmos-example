@@ -32,15 +32,23 @@
         :summary "adds two numbers together"
         (ok {:result (+ x y)})))))
 
-(defn ^:private read-config [filename]
+(defn ^:private read-config
+  "Read the file in and parse it as edn."
+  [filename]
   (edn/read-string (slurp filename)))
 
-(defn ^:private base-system []
-  (let [config (read-config "resources/web_config.edn")]
+(defn ^:private base-system
+  "Pass the map we read from the config file to kosmos and setup as base system."
+   []
+   (let [config (read-config "resources/config.edn")]
     (kosmos/map->system config)))
 
-(defn application-system []
+(defn application-system
+  "Use kosmos to start the application." 
+  []
   (kosmos/start! (base-system)))
 
-(defn -main [& args]
+(defn -main
+  "Start the application."
+  [& args]
   (application-system))

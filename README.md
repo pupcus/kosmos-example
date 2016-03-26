@@ -1,6 +1,24 @@
 # kosmos-example
 
-Simpliest example of using kosmos and using kosmos-web.
+Simpliest example of using kosmos and configs for kosmos-web and nrepl..
+
+## Configuration File
+
+```clj
+{
+ :web {
+   :kosmos/init :kosmos.web/RingJettyComponent
+   :ring-app kosmos-example/app
+   :port 1111
+  } 
+  :nrepl {
+    :kosmos/init :kosmos.nrepl/NreplComponent
+    :port 5001 
+   } 
+}
+```
+
+I put this file in resources 
 
 ## Usage
 
