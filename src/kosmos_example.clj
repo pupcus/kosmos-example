@@ -1,22 +1,18 @@
 (ns kosmos-example
   (:require [kosmos.web :refer :all]
             [clojure.tools.reader.edn :as edn]
-            [clj-http.client :as http]
-            [clojure.tools.logging :as log]
-            [com.stuartsierra.component :as component]
             [compojure.api.sweet :refer :all]
             [ring.util.http-response :refer :all]
-            [schema.core :as s]
             [kosmos]))
 
 (def app
   (api
     {:swagger
-     {:ui "/"
-      :spec "/swagger.json"
-      :data {:info {:title "Sample"
-                    :description "Compojure Api example"}
-             :tags [{:name "api", :description "some apis"}]}}}
+      {:ui "/"
+        :spec "/swagger.json"
+        :data {:info {:title "Sample"
+                      :description "Compojure Api example"}
+               :tags [{:name "api", :description "some apis"}]}}}
 
     (context "/api" []
       :tags ["api"]
